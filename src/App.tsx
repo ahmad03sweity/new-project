@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useReducer } from "react";
+import "./App.css";
+import reducer from "./reducers/reducer";
+
+const initialState = { counter: 0 };
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1 className="title">Vite + React</h1>
+      <h2 className="counter">{state.counter}</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <button className="button increment" onClick={() => dispatch({ type: "increment" })}>
+        Increment
+      </button>
+      <button className="button decrement" onClick={() => dispatch({ type: "decrement" })}>
+        Decrement
+      </button>
+      <button className="button reset" onClick={() => dispatch({ type: "reset" })}>Reset</button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <input className="input" type="number" onChange={(v) => dispatch({ type: 'set-value', payload: Number(v.currentTarget.value) })} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

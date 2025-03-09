@@ -1,0 +1,46 @@
+/* Style for the reducer component */
+.reducer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: #f5f5f5;
+    }
+    50% {
+        background-color: #e0e0e0;
+    }
+    100% {
+        background-color: #f5f5f5;
+    }
+}
+
+.reducer-button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reducer-button:hover {
+    background-color: #0056b3;
+}
+
+.reducer-counter {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #333;
+}
